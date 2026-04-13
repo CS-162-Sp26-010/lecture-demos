@@ -50,15 +50,30 @@ def main() -> None:
     modify_list(my_list)
     print(my_list[0]) # Prints 1000!
 
+    '''
+    value_is_in_list = False
+    for value in my_list:
+        if value == 1000:
+            value_is_in_list = True
+
+    if value_is_in_list:
+        print('1000 is in my_list!')
+    '''
+
     # in operator
+    if 1000 in my_list:
+        print('1000 is in my_list!')
 
-    # List comprehensions
+    # List comprehensions: We'll come back to this if we have time
 
-    # Tracebacks
+    # Tracebacks. Reverse backtraces.
 
     # Code style
 
     # Explicit type annotations of local variables
+    my_new_cool_variable: list[bool] = []
+    # my_new_cool_variable.append(1) # Mypy generates error
+    my_new_cool_variable.append(True)
 
 
 if __name__ == '__main__':
