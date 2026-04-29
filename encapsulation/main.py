@@ -1,12 +1,12 @@
-from zombie import Zombie, print_zombie, is_alive
+from zombie import Zombie
 
 def main() -> None:
     my_zombies = [Zombie(), Zombie(), Zombie()]
-    print_zombie(my_zombies, 0) # The main function interacts with the a function's interface
+    my_zombies[0].print()
     # An interface is the part of a component of code that describes WHAT it
     # is / WHAT it does, and HOW to interact with it.
-    print_zombie(my_zombies, 2)
-    if is_alive(my_zombies[1]):
+    my_zombies[2].print()
+    if my_zombies[1].is_alive():
         print('The second zombie is still alive!')
     else:
         print('The second zombie is dead!')

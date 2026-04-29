@@ -20,28 +20,41 @@
 # Encapsulation: Co-location (bundling) of data with the behaviors that
 # operate on that data.
 
+# Information-hiding: When you make attributes private.
+# In Python, private attributes are simply attributes
+# that SHOULD ONLY be accessed within methods of the class that has said
+# attributes. The convention: anything whose name starts with an _ is
+# private.
+
+# Information-hiding enforces encapsulation. So long as everyone
+# follows the convention, then encapsulation is guaranteed.
+
 class Zombie:
-    hp: int
+    _hp: int
     #alive: bool
     sanity: int
 
     # In some programming languages, you might call this
     # a "default constructor"
     def __init__(self) -> None:
-        self.hp = 10
+        self._hp = 10
         #self.alive = True
         self.sanity = 3
+
+    def print(self) -> None:
+        print(f'HP: {self._hp}, sanity: {self.sanity}')
+
+    def is_alive(self) -> bool:
+        if self._hp > 0: # Zombies don't have hp anymore!
+            return True
+        else:
+            return False
 
 # This is encapsulation! These are behaviors (functions) that operate
 # on data (attributes), and we've colocated them (bundled them)
 # with said attributes, placing them in the same module.
 
 # "Things that change together go together"
-def print_zombie(zombies: list[Zombie], index: int) -> None:
-    print(f'HP: {zombies[index].hp}, sanity: {zombies[index].sanity}')
-
-def is_alive(z: Zombie) -> bool:
-    if z.hp > 0: # Zombies don't have hp anymore!
-        return True
-    else:
-        return False
+#def my_function(z: Zombie) -> None:
+#    z._hp = 100 # This is a violation of the convention
+#    print(z._hp) # This is a violation of the convention
