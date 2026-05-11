@@ -1,3 +1,5 @@
+
+# Common way that optionals are used is as parameters
 def foo(y: float | None) -> None:
     # There must be a present if statement that looks like this in order
     # for Mypy to be able to determine whether y + 2 is valid.
@@ -21,6 +23,11 @@ def main() -> None:
 
     foo(y)
 
+    table: list[list[float | None]] = [
+        [3.14, 9.81, None],
+        [None, None, -1.5],
+        [2.5, 1.4, None]
+    ]
 
 if __name__ == '__main__':
     main()
