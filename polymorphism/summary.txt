@@ -1,0 +1,15 @@
+To do subtype polymorphism:
+
+1. Create a base class
+2. Create one or more methods in that base class. Very often, some of these
+	methods are abstract. If the base class has one or more abstract methods,
+	it should inherit from ABC.
+3. Create one or more derived classes
+4. In those derived classes, override one or more of the methods inherited from
+	the base class
+5. Somewhere, create a variable whose static (annotated) type is the base class,
+	but whose dynamic (actual) type is one of the various derived classes
+
+	ex: `my_cool_monster: Monster = Zombie()`
+6. Call overridden methods within that object
+	ex: `my_cool_monster.attack_player(p)`
